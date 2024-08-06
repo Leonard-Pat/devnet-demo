@@ -1,0 +1,19 @@
+[package]
+name = "devnet"
+version = "0.1.0"
+cairo-version = "2.6.3"
+
+[[target.starknet-contract]]
+sierra = true
+casm = true
+allowed-libfuncs-list.name = "audited"
+
+[dependencies]
+starknet = "2.6.3"
+
+[scripts]
+test-ts = "scarb --profile release build && yarn tsc && yarn mocha tests-integration/*.test.ts"
+start-devnet = "docker build -t devnet . && docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dumps:/dumps devnet"
+kill-devnet = "docker stop $(docker ps -q --filter ancestor=devnet)"
+start-devnet-dumped="docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dumps:/dumps devnet --dump-path /dumps/devnet_dump --seed 0"
+declare="bun run scripts/declare.ts"

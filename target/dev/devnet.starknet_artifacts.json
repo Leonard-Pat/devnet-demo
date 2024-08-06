@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"m9nf55a47hii6","package_name":"devnet","contract_name":"MockDapp","module_path":"devnet::mock_dapp::MockDapp","artifacts":{"sierra":"devnet_MockDapp.contract_class.json","casm":"devnet_MockDapp.compiled_contract_class.json"}}]}
