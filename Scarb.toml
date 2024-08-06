@@ -13,7 +13,8 @@ starknet = "2.6.3"
 
 [scripts]
 test-ts = "scarb --profile release build && yarn tsc && yarn mocha tests-integration/*.test.ts"
-start-devnet = "docker build -t devnet . && docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dumps:/dumps devnet"
+start-devnet = "docker build -t devnet . && docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dump:/dump devnet"
 kill-devnet = "docker stop $(docker ps -q --filter ancestor=devnet)"
-start-devnet-dumped="docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dumps:/dumps devnet --dump-path /dumps/devnet_dump --seed 0"
+start-devnet-dumped="docker run -d -p 127.0.0.1:5050:5050 -v $(pwd)/dump:/dump devnet --dump-path /dump/dum --seed 0"
+declareAndDump="bun run scripts/declareAndDump.ts"
 declare="bun run scripts/declare.ts"
